@@ -4,8 +4,12 @@
     width: 600px;
 }
 
-.remove {
+.edit, .remove {
 float:right;
+}
+
+.edit {
+    margin-right: 5px;
 }
 
 td {

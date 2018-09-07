@@ -1,23 +1,16 @@
 <html>
 
 <head>
-    <title>Todos (
-        <%= todos.length %>) </title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link href="/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/index.js"></script>
+    <title>Todos (<%=todos.length%>)</title>
+	
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
     <div class="card" id="wrapper">
-        <h5 class="card-header">Todos (
-            <%= todos.length %>) </h5>
+        <h5 class="card-header">Todos (<%=todos.length%>)</h5>
         <div class="card-body">
             <form>
                 <div class="input-group mb-3">
@@ -33,8 +26,9 @@
                     <% todos.forEach((item) => { %>
                     <tr>
                         <td>
-                            <%= item.todo %> <button class="btn btn-danger remove" data-id="<%= item._id %>"><i class="far fa-trash-alt"></i>
-                            </button>
+                            <span id="todo-item"><%= item.todo %></span>
+                            <button class="btn btn-danger remove" data-id="<%= item._id %>"><i class="far fa-trash-alt"></i></button>
+                            <button class="btn btn-success edit" data-id="<%= item._id %>"><i class="far fa-edit"></i></button>
                         </td>
                     </tr>
                     <% }); %>
@@ -42,6 +36,9 @@
             </table>
         </div>
     </div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascript/index.js"></script>
 </body>
 
 </html>
