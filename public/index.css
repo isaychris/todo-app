@@ -1,0 +1,13 @@
+#wrapper {
+    margin: auto;
+    margin-top: 50px;
+    width: 600px;
+}
+
+.remove {
+float:right;
+}
+
+td {
+    line-height: 35px;
+}
