@@ -1,13 +1,14 @@
 $('document').ready(function () {
     $('form').submit(function () {
         console.log('submit clicked');
-
+        $('span#current_user').text();
         $.ajax({
             type: 'post',
             url: 'add/todo',
             data: {
                 todo: $('form input').val(),
-                check: false
+                check: false,
+                username: $('span#current_user').text()
             }
         });
     });

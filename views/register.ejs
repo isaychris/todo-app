@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/auth.css">
+</head>
+
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"></a>
+    <a class="btn btn-primary" href="/login"> Sign in </a>
+</nav>
+
+<body>
+    <div class="container">
+        <div id="wrapper">
+            <% if (message != undefined) { %>
+            <div class="alert alert-primary text-center" role="alert"><%= message %></div>
+            <% } %>
+            <div class="card text-center">
+                <div class="card-header">Register</div>
+                <div class="card-body">
+                    <form action="/register" method="post">
+                        <input class="form-control" name="username" type="text" placeholder="username" required
+                            maxlength="30">
+                        <br>
+                        <input class="form-control" name="password" type="password" placeholder="password" required
+                            maxlength="30">
+                        <br>
+                        <button class="btn btn-primary" type="submit" style="width:100%;">Enter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
