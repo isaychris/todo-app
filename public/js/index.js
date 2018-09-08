@@ -4,9 +4,10 @@ $('document').ready(function () {
 
         $.ajax({
             type: 'post',
-            url: 'add',
+            url: 'add/todo',
             data: {
-                todo: $('form input').val()
+                todo: $('form input').val(),
+                check: false
             }
         });
     });
@@ -18,7 +19,7 @@ $('document').ready(function () {
 
             $.ajax({
                 type: 'delete',
-                url: `remove/${id}`,
+                url: `remove/todo/${id}`,
                 success: function (res) {
                     location.href = "/";
                 }
@@ -36,7 +37,7 @@ $('document').ready(function () {
 
             $.ajax({
                 type: 'put',
-                url: `edit/${id}`,
+                url: `edit/todo/${id}`,
                 data: {
                     todo: todo
                 },
@@ -45,5 +46,19 @@ $('document').ready(function () {
                 }
             });
         }
+    });
+
+    $('input[type=checkbox]').click(function () {
+        let state = $(this).prop('checked');
+        let id = $(this).data('id');
+
+        $.ajax({
+            type: 'put',
+            url: `edit/check/${id}`,
+            data: {
+                check: state
+            },
+            success: function (res) {}
+        });
     });
 });

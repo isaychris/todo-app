@@ -1,12 +1,13 @@
 # todo-web-app
 A simple todo web app to test out node.js / mongodb / passport.js
 
-![Image](https://i.imgur.com/W4kCy9u.png)
+![Image](https://i.imgur.com/0uGOftP.png)
 
 ### Working:
 * Adding
 * Removing
 * Editing
+* Checkbox
 
 ### TODO:
 * Login

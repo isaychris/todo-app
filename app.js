@@ -20,7 +20,6 @@ mongoose.connect(
   }
 );
 
-let db = mongoose.connection;
 let Todo = require("./models/todo");
 
 app.get("/", function (req, res) {

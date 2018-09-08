@@ -3,14 +3,13 @@ const router = express.Router();
 
 let Todo = require("../models/todo");
 
-router.delete('/:id', function (req, res) {
+router.delete('/todo/:id', function (req, res) {
     Todo.find({
         _id: req.params.id
-    }).remove(function (err) {
+    }).remove(function (err, doc) {
         if (err) throw err;
-        console.log("item removed!");
 
-        res.send('success');
+        res.send(doc);
     });
 });
 

@@ -4,8 +4,13 @@
     width: 600px;
 }
 
-.edit, .remove {
-float:right;
+.edit,
+.remove {
+    float: right;
+}
+
+input[type=checkbox] {
+    margin-right: 8px;
 }
 
 .edit {
