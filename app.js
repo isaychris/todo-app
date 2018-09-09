@@ -3,6 +3,7 @@ const session = require("express-session")
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
+const Todo = require("./models/todo");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -31,10 +32,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+// routes that exist for the website
 app.use('/add', require('./routes/add'));
 app.use('/remove', require('./routes/remove'));
 app.use('/edit', require('./routes/edit'));
 app.use('/', require('./routes/auth'));
+//
 
 mongoose.connect(
   "mongodb+srv://admin:anime@cluster0-e7lsm.mongodb.net/test?retryWrites=true", {
@@ -43,8 +46,7 @@ mongoose.connect(
   }
 );
 
-let Todo = require("./models/todo");
-
+// route for when the user views the index of the website
 app.get("/", function (req, res) {
   if (req.session.user && req.cookies.user_sid) {
 
@@ -54,8 +56,7 @@ app.get("/", function (req, res) {
       if (err) throw err;
 
       res.render("index", {
-        todos: result,
-        username: req.session.user
+        todos: result, username: req.session.user
       });
     });
   } else {

@@ -7,8 +7,7 @@ $('document').ready(function () {
             url: 'add/todo',
             data: {
                 todo: $('form input').val(),
-                check: false,
-                username: $('span#current_user').text()
+                check: false
             }
         });
     });
@@ -59,7 +58,7 @@ $('document').ready(function () {
             data: {
                 check: state
             },
-            success: function (res) {}
+            success: function (res) { }
         });
     });
 });
