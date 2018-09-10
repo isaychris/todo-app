@@ -1,6 +1,8 @@
 # todo-app
-A simple todo web app to test out node.js / mongodb / passport.js
+A todo web application written with the goal of learning how to use node.js / express.js / mongodb / passport.js
 
+# Website:
+https://seiya-todo-app.herokuapp.com/
 ![Image](https://i.imgur.com/q3i4YQR.png)
 
 ### Working:
