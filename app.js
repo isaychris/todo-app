@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport")
 const db = require("./configs/database");
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const app = express();
 
 // making the connection to mongo database
@@ -16,7 +18,12 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(require('express-session')({
+  secret: 'keyboard cat', resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ url: db.config.uri, ttl: 14 * 24 * 60 * 60 })
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
