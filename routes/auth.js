@@ -12,11 +12,8 @@ router.get('/logout', function (req, res) {
 
 // route for when user views register page
 router.get('/register', function (req, res) {
-    // if user already authenticated, redirect to index
-    if (req.session.user && req.cookies.user_sid) {
-        res.redirect('/');
-
-        // if not, render login page
+    if (req.isAuthenticated()) {
+        res.redirect('../');
     } else {
         res.render("register", { message: undefined });
     }
@@ -48,11 +45,8 @@ router.post('/register', function (req, res) {
 
 // route for when user views login page
 router.get('/login', function (req, res) {
-    // if user already authenticated, redirect to index
-    if (req.session.user && req.cookies.user_sid) {
-        res.redirect('..');
-
-        // if not, render login page
+    if (req.isAuthenticated()) {
+        res.redirect('../');
     } else {
         res.render("login", { message: undefined });
     }
@@ -66,25 +60,32 @@ router.post('/login', function (req, res) {
         if (err) throw err;
 
         // if nothing is returned, render login page with error message
-        if (!doc.length)
+        if (!doc.length) {
             res.render('login', { message: "Username or password is incorrect." });
+        } else {
+            // compare password with hashed password
+            bcrypt.compare(req.body.password, doc[0].password, function (err, result) {
+                if (err) throw err;
 
-        // compare password with hashed password
-        bcrypt.compare(req.body.password, doc[0].password, function (err, result) {
-            if (err) throw err;
+                //if they match, redirect to index.
+                if (result == true) {
+                    console.log("hash matches");
 
-            //if they match, redirect to index.
-            if (result == true) {
-                console.log("hash matches");
-                req.session.user = req.body.username;
-                res.redirect('../');
+                    // create session using passport js
+                    req.login(doc[0]._id, function (err) {
+                        if (err) throw err;
+                        req.session.user = req.body.username;
 
-                //if not, redirect back to login.
-            } else {
-                console.log('hash does not match')
-                res.render('login', { message: "Username or password is incorrect." });
-            }
-        });
+                        res.redirect('../');
+                    });
+
+                    //if not, redirect back to login.
+                } else {
+                    console.log('hash does not match')
+                    res.render('login', { message: "Username or password is incorrect." });
+                }
+            });
+        }
     });
 });
 

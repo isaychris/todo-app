@@ -6,14 +6,14 @@ A simple todo web app to test out node.js / mongodb / passport.js
 ### Working:
 * Login
 * Sign up
-* Accounts
+* Sessions
 * Adding todos
 * Removing todos
 * Editing todos
 * Setting checkbox
+* Authentication using passport.js
 
 ### TODO:
-* Authentication using passport.js
 * Store sessions on mongo database rather than on the server.
 
 # Setup:
