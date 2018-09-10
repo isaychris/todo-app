@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport")
 const db = require("./configs/database");
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const app = express();
 
 // making the connection to mongo database
@@ -18,12 +16,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(require('express-session')({
-  secret: 'keyboard cat', resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ url: db.config.uri, ttl: 14 * 24 * 60 * 60 })
-}));
-
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -38,6 +31,6 @@ app.use('/', require('./routes/index'));
 passport.serializeUser(function (user_id, done) { done(null, user_id); });
 passport.deserializeUser(function (user_id, done) { done(null, user_id); });
 
-app.listen(5000, function () {
+app.listen(process.env.PORT || 5000, function () {
   console.log("listening on port 5000!");
 });

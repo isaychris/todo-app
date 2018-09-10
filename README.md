@@ -1,9 +1,10 @@
 # todo-app
 A todo web application written with the goal of learning how to use node.js / express.js / mongodb / passport.js
 
-https://seiya-todo-app.herokuapp.com/  
+![Image](https://i.imgur.com/PKSRwWp.png)
 
-![Image](https://i.imgur.com/q3i4YQR.png)
+### Website:
+https://seiya-todo-app.herokuapp.com/
 
 ### Working:
 * Login
@@ -31,13 +32,13 @@ node app.js
 
 # Screenshots:
 ### Login  
-![Image](https://i.imgur.com/A5CEN2Q.png)
+![Image](https://i.imgur.com/0n74Aqk.png)
 
 ### Sign up  
-![Image](https://i.imgur.com/ejYjQ0F.png)
+![Image](https://i.imgur.com/SbKDG13.png)
 
 ### Editing   
-![Image](https://i.imgur.com/FdVOCqn.png)
+![Image](https://i.imgur.com/mh1Mp5v.png)
 
 ### Deleting
-![Image](https://i.imgur.com/5el9BJL.png)
+![Image](https://i.imgur.com/TmDoHBp.png)

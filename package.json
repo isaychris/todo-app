@@ -2,8 +2,12 @@
   "name": "todo-npm",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.11.4"
+  },
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,7 +15,6 @@
   "dependencies": {
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
-    "connect-mongo": "^2.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
