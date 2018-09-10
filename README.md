@@ -1,8 +1,8 @@
 # todo-app
 A todo web application written with the goal of learning how to use node.js / express.js / mongodb / passport.js
 
-# Website:
-https://seiya-todo-app.herokuapp.com/
+https://seiya-todo-app.herokuapp.com/  
+
 ![Image](https://i.imgur.com/q3i4YQR.png)
 
 ### Working:
